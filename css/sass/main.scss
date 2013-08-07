@@ -1,0 +1,669 @@
+/*
+ * HTML5 Boilerplate
+ *
+ * What follows is the result of much research on cross-browser styling.
+ * Credit left inline and big thanks to Nicolas Gallagher, Jonathan Neal,
+ * Kroc Camen, and the H5BP dev community and team.
+ */
+
+/* ==========================================================================
+   Base styles: opinionated defaults
+   ========================================================================== */
+
+html,
+button,
+input,
+select,
+textarea {
+    color: #222;
+}
+
+body {
+    font-size: 1em;
+    line-height: 1.4;
+}
+
+/*
+ * Remove text-shadow in selection highlight: h5bp.com/i
+ * These selection declarations have to be separate.
+ * Customize the background color to match your design.
+ */
+
+::-moz-selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+::selection {
+    background: #b3d4fc;
+    text-shadow: none;
+}
+
+/*
+ * A better looking default horizontal rule
+ */
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+/*
+ * Remove the gap between images and the bottom of their containers: h5bp.com/i/440
+ */
+
+img {
+    vertical-align: middle;
+}
+
+/*
+ * Remove default fieldset styles.
+ */
+
+fieldset {
+    border: 0;
+    margin: 0;
+    padding: 0;
+}
+
+/*
+ * Allow only vertical resizing of textareas.
+ */
+
+textarea {
+    resize: vertical;
+}
+
+/* ==========================================================================
+   Chrome Frame prompt
+   ========================================================================== */
+
+.chromeframe {
+    margin: 0.2em 0;
+    background: #ccc;
+    color: #000;
+    padding: 0.2em 0;
+}
+
+/* ==========================================================================
+   Author's custom styles
+   ========================================================================== */
+
+@font-face {
+font-family: 'AnselmBradford';
+  src: url('fonts/AnselmBradford.ttf') format('truetype');
+}
+
+html
+{
+	min-height:100%;
+	font-family: 'Droid Sans', sans-serif;
+    background-color:rgb(169,174,60);
+}
+
+#background.loaded
+{
+    opacity:1;
+    -webkit-transition: opacity 0.5s;
+     -moz-transition: opacity 0.5s;
+       -o-transition: opacity 0.5s;
+          transition: opacity 0.5s;
+
+
+    -webkit-transition-delay: 0.1s;
+}
+
+#background
+{
+    position:fixed;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+    background-color:rgb(169,174,60);
+    overflow: hidden;
+    opacity:0;
+
+    >div.group1
+    {
+        div
+        {
+            top:0;
+            margin-top:0%;
+            margin-left:-50%;
+            z-index:1;
+            width:100%;
+
+            background-color:rgba(255,255,255,0.5);
+            background:url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAoAAAPoCAYAAADnVm+pAAAAGXRFWHRTb2Z0d2FyZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAAyNpVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNS1jMDE0IDc5LjE1MTQ4MSwgMjAxMy8wMy8xMy0xMjowOToxNSAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RSZWY9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZVJlZiMiIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIENDIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjFFMUI4NEE2RjVCQzExRTJCRjBDOEM5Njg1OUVGMkI1IiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjFFMUI4NEE3RjVCQzExRTJCRjBDOEM5Njg1OUVGMkI1Ij4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6MjBBNDZEMTlGNUJCMTFFMkJGMEM4Qzk2ODU5RUYyQjUiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6MjBBNDZEMUFGNUJCMTFFMkJGMEM4Qzk2ODU5RUYyQjUiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4gc42lAAABJklEQVR42uzXwQ2EMAxE0QTRfyMUaVJCBAew/Vba2xwy398QZkRcY+N3jM2fYJ/guf4BjxEqI2gygAuaNTxGqDXgWicpA4/WyliuGlK47TGcj15IWgPuZm8LndEIXeKcUeveZzQZrUnh8tEMOMOJyx7AiUvcopp5ANgZ4hKXFMQFnOFm7aMCcGe0CiZjZ/ioDDzKwKM14FoDjqOgOwUpGA6PoKCgoKDg27frhEewrBQMBxxHQZP5XWscLReOacp8eEZ4GO6MXsMmY2dMxipYBT5WA85wn3spz0hcW+jyQVwciYuj5SIu4JaL4YB7fbiRWgVntDOWywgZroxLHCk8UrTWGh5vBT4ynOHKaO2LXRmtAdfaZOARNGvABU2GZnzEUfBp8BZgAMl/cQjnA2EeAAAAAElFTkSuQmCC);
+            -webkit-background-size:contain;
+                    background-size:contain;
+
+            -webkit-border-radius:0px 1000px;
+                    border-radius:0px 1000px;
+        }
+    }
+
+    >div.group2
+    {
+        div
+        {
+            top:50%;
+            background-color:rgba(255,207,138,0.5);
+            margin-left:-20%;
+        }
+    }
+
+    >div 
+    {
+        div
+        {
+            
+            width:90%;
+            height:100%;
+            position:absolute;
+            left:50%;
+
+             -webkit-transform: rotate(0deg);
+                -moz-transform: rotate(0deg);
+                 -ms-transform: rotate(0deg);
+                  -o-transform: rotate(0deg);
+                     transform: rotate(0deg);
+        }
+
+        div.rotate:nth-child(1)
+        {
+             -webkit-transform: rotate(15deg);
+                -moz-transform: rotate(15deg);
+                 -ms-transform: rotate(15deg);
+                  -o-transform: rotate(15deg);
+                     transform: rotate(15deg);
+
+            -webkit-transition: all 2s;
+               -moz-transition: all 2s;
+                 -o-transition: all 2s;
+                    transition: all 2s;
+        }
+        div.rotate:nth-child(2)
+        {
+             -webkit-transform: rotate(30deg);
+                -moz-transform: rotate(30deg);
+                 -ms-transform: rotate(30deg);
+                  -o-transform: rotate(30deg);
+                     transform: rotate(30deg);
+
+            -webkit-border-radius:1000px;
+                    border-radius:1000px;
+        }
+        div.rotate:nth-child(3)
+        {
+             -webkit-transform: rotate(45deg);
+                -moz-transform: rotate(45deg);
+                 -ms-transform: rotate(45deg);
+                  -o-transform: rotate(45deg);
+                     transform: rotate(45deg);
+
+            -webkit-transition: all 4s;
+               -moz-transition: all 4s;
+                 -o-transition: all 4s;
+                    transition: all 4s;
+        }
+        div.rotate:nth-child(4)
+        {
+             -webkit-transform: rotate(60deg);
+                -moz-transform: rotate(60deg);
+                 -ms-transform: rotate(60deg);
+                  -o-transform: rotate(60deg);
+                     transform: rotate(60deg);
+
+            -webkit-border-radius:1000px;
+                    border-radius:1000px;
+        }
+        div.rotate:nth-child(5)
+        {
+             -webkit-transform: rotate(75deg);
+                -moz-transform: rotate(75deg);
+                 -ms-transform: rotate(75deg);
+                  -o-transform: rotate(75deg);
+                     transform: rotate(75deg);
+
+            -webkit-transition: all 2s;
+               -moz-transition: all 2s;
+                 -o-transition: all 2s;
+                    transition: all 2s;         
+        }
+        div.rotate:nth-child(6)
+        {
+             -webkit-transform: rotate(90deg);
+                -moz-transform: rotate(90deg);
+                 -ms-transform: rotate(90deg);
+                  -o-transform: rotate(90deg);
+                     transform: rotate(90deg);
+
+            -webkit-border-radius:1000px;
+                    border-radius:1000px;
+        }
+        div.rotate:nth-child(7)
+        {
+             -webkit-transform: rotate(105deg);
+                -moz-transform: rotate(105deg);
+                 -ms-transform: rotate(105deg);
+                  -o-transform: rotate(105deg);
+                     transform: rotate(105deg);
+
+            -webkit-transition: all 4s;
+               -moz-transition: all 4s;
+                 -o-transition: all 4s;
+                    transition: all 4s;            
+        }
+
+        div.rotate:nth-child(8)
+        {
+             -webkit-transform: rotate(120deg);
+                -moz-transform: rotate(120deg);
+                 -ms-transform: rotate(120deg);
+                  -o-transform: rotate(120deg);
+                     transform: rotate(120deg);
+
+            -webkit-border-radius:1000px;
+                    border-radius:1000px;
+        }
+
+        div.rotate:nth-child(9)
+        {
+             -webkit-transform: rotate(135deg);
+                -moz-transform: rotate(135deg);
+                 -ms-transform: rotate(135deg);
+                  -o-transform: rotate(135deg);
+                     transform: rotate(135deg);
+
+            -webkit-transition: all 2s;
+               -moz-transition: all 2s;
+                 -o-transition: all 2s;
+                    transition: all 2s;             
+        }
+
+        div.rotate:nth-child(10)
+        {
+             -webkit-transform: rotate(150deg);
+                -moz-transform: rotate(150deg);
+                 -ms-transform: rotate(150deg);
+                  -o-transform: rotate(150deg);
+                     transform: rotate(150deg);
+
+            -webkit-border-radius:1000px;
+                    border-radius:1000px;
+
+        }
+
+        div.rotate:nth-child(11)
+        {
+             -webkit-transform: rotate(165deg);
+                -moz-transform: rotate(165deg);
+                 -ms-transform: rotate(165deg);
+                  -o-transform: rotate(165deg);
+                     transform: rotate(165deg);
+
+            -webkit-transition: all 4s;
+               -moz-transition: all 4s;
+                 -o-transition: all 4s;
+                    transition: all 4s; 
+        }
+    }
+}
+
+.ab-icons
+{
+    font-family:'AnselmBradford',sans-serif;
+}
+
+main
+{
+    position:relative;
+    z-index:2;
+    margin-left:10%;
+    margin-top:5%;
+    margin-right:10%;
+    margin-bottom:5%;
+    padding:20px;
+
+    -webkit-transform: rotate(-90deg);
+       -moz-transform: rotate(-90deg);
+        -ms-transform: rotate(-90deg);
+         -o-transform: rotate(-90deg);
+            transform: rotate(-90deg);
+
+    background-color:rgba(255,255,255,0.95);
+    top:1000px;
+    border:1px solid rgba(255,0,0,0.05);
+
+    a
+    {
+        text-decoration:none;
+        color:rgb(0,0,0);
+        border-bottom:1px solid rgba(255,0,0,0.5);
+    }
+
+    a:hover
+    {
+        border-bottom:1px solid rgba(255,0,0,1);
+    }
+
+    > header 
+    {
+        > *
+        {
+            display:inline-block;
+        }
+
+        >h1
+        {
+            border-left:2px solid black;
+            border-right:2px solid black;
+            padding-left:20px;
+            padding-right:20px;
+            font-size:36px;
+            font-weight:bold;
+        }
+
+        >section 
+        {
+            margin-bottom: 20px;
+            span a
+            {
+                text-decoration: none;
+                font-size: 32px;
+                color: rgba(255,0,0,0.5);
+                position: relative;
+                top: 4px;
+                left: 15px;
+                border-bottom:0px solid rgb(0,0,0);
+            }
+
+            span a:hover
+            {
+                color:rgba(255,0,0,1);
+                border-bottom:0px solid rgb(0,0,0);
+            }
+        }
+    }
+
+    // content
+    > section
+    {
+        border-top: 1px solid rgba(0,0,0,0.2);
+        padding-left:20px;
+        padding-right:20px;
+
+        > h1
+        {
+            font-size:24px;
+            color:rgba(255,0,0,0.5);
+        }
+
+
+        > h1:first-child
+        {
+            float:left;
+            width:300px;
+            margin-top:7px;
+        }
+        > section 
+        {
+            margin-left:300px;
+            > h1
+            {
+                font-size:18px;
+            }
+
+            ul li
+            {
+                font-size:14px;
+                margin-bottom:10px;
+            }
+
+            p
+            {
+                margin-left:20px;
+            }
+        }
+    }
+
+    > footer
+    {
+        font-size:10px;
+        text-align:right;
+        color:rgba(255,0,0,0.4);
+    }
+}
+
+main.rotate
+{
+    -webkit-transform: rotate(2deg);
+       -moz-transform: rotate(2deg);
+        -ms-transform: rotate(2deg);
+         -o-transform: rotate(2deg);
+            transform: rotate(2deg);
+
+    top:0;
+
+    -webkit-transition: all 0.7s;
+     -moz-transition: all 0.7s;
+       -o-transition: all 0.7s;
+          transition: all 0.7s;
+}
+
+
+/* ==========================================================================
+   Helper classes
+   ========================================================================== */
+
+/*
+ * Image replacement
+ */
+
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    /* IE 6/7 fallback */
+    *text-indent: -9999px;
+}
+
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+
+/*
+ * Hide from both screenreaders and browsers: h5bp.com/u
+ */
+
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+
+/*
+ * Hide only visually, but have it available for screenreaders: h5bp.com/v
+ */
+
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+/*
+ * Extends the .visuallyhidden class to allow the element to be focusable
+ * when navigated to via the keyboard: h5bp.com/p
+ */
+
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+
+/*
+ * Hide visually and from screenreaders, but maintain layout
+ */
+
+.invisible {
+    visibility: hidden;
+}
+
+/*
+ * Clearfix: contain floats
+ *
+ * For modern browsers
+ * 1. The space content is one way to avoid an Opera bug when the
+ *    `contenteditable` attribute is included anywhere else in the document.
+ *    Otherwise it causes space to appear at the top and bottom of elements
+ *    that receive the `clearfix` class.
+ * 2. The use of `table` rather than `block` is only necessary if using
+ *    `:before` to contain the top-margins of child elements.
+ */
+
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ * Include this rule to trigger hasLayout and contain floats.
+ */
+
+.clearfix {
+    *zoom: 1;
+}
+
+/* ==========================================================================
+   EXAMPLE Media Queries for Responsive Design.
+   Theses examples override the primary ('mobile first') styles.
+   Modify as content requires.
+   ========================================================================== */
+
+/* All Mobile Sizes (devices and browser) */
+@media only screen and (max-width: 767px)
+{
+    /* Style adjustments for viewports that meet the condition */
+
+    main
+    {
+        > section
+        {
+            > h1:first-child
+            {
+                float:none;
+                width:auto;
+                margin-top:7px;
+            }
+
+            > section 
+            {
+                margin-left:0px;
+            }
+        }
+    }
+}
+
+@media print,
+       (-o-min-device-pixel-ratio: 5/4),
+       (-webkit-min-device-pixel-ratio: 1.25),
+       (min-resolution: 120dpi) {
+    /* Style adjustments for high resolution devices */
+}
+
+/* ==========================================================================
+   Print styles.
+   Inlined to avoid required HTTP connection: h5bp.com/r
+   ========================================================================== */
+
+@media print {
+    * {
+        background: transparent !important;
+        color: #000 !important; /* Black prints faster: h5bp.com/s */
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /*
+     * Don't show links for images, or javascript/internal links
+     */
+
+    .ir a:after,
+    a[href^="javascript:"]:after,
+    a[href^="#"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    thead {
+        display: table-header-group; /* h5bp.com/t */
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    @page {
+        margin: 0.5cm;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}
