@@ -301,11 +301,11 @@ main {
     color: rgba(255, 0, 0, 0.4); }
 
 main.rotate {
-  -webkit-transform: rotate(2deg);
-  -moz-transform: rotate(2deg);
-  -ms-transform: rotate(2deg);
-  -o-transform: rotate(2deg);
-  transform: rotate(2deg);
+  -webkit-transform: rotate(0deg);
+  -moz-transform: rotate(0deg);
+  -ms-transform: rotate(0deg);
+  -o-transform: rotate(0deg);
+  transform: rotate(0deg);
   top: 0;
   -webkit-transition: all 0.7s;
   -moz-transition: all 0.7s;
